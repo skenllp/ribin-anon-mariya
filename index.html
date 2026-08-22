@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ribin &amp; Anon Mariya — Guided by Faith, United in Love | 23 November 2026</title>
+  <meta name="description" content="With joyful hearts we invite you to celebrate the holy union of Ribin R Philip &amp; Anon Mariya Augustine — 23 November 2026.">
+
+  <!-- Favicon & share thumbnail -->
+  <link rel="icon" type="image/png" href="assets/images/thumbnail.png">
+  <link rel="apple-touch-icon" href="assets/images/thumbnail.png">
+
+  <!-- Open Graph — WhatsApp, Facebook, iMessage, LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ribin &amp; Anon Mariya Wedding">
+  <meta property="og:title" content="Ribin &amp; Anon Mariya — Wedding Invitation">
+  <meta property="og:description" content="With joyful hearts we invite you to celebrate our holy union. 23 November 2026.">
+  <meta property="og:url" content="https://ribin-anon-mariya.vercel.app/">
+  <meta property="og:image" content="https://ribin-anon-mariya.vercel.app/assets/images/wedding-invite-og.jpg">
+  <meta property="og:image:secure_url" content="https://ribin-anon-mariya.vercel.app/assets/images/wedding-invite-og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ribin &amp; Anon Mariya wedding invitation — What God has joined together">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ribin &amp; Anon Mariya — Wedding Invitation">
+  <meta name="twitter:description" content="With joyful hearts we invite you to celebrate our holy union. 23 November 2026.">
+  <meta name="twitter:image" content="https://ribin-anon-mariya.vercel.app/assets/images/wedding-invite-og.jpg">
+
+  <!-- Favicon & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Great+Vibes&family=Inter:wght@200;300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <!-- Master CSS Files -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/cover.css">
+  <link rel="stylesheet" href="css/gallery.css">
+  <link rel="stylesheet" href="css/particles.css">
+
+  <!-- Make share-image URLs absolute (required by WhatsApp / Facebook) -->
+  <script>
+    (function () {
+      var origin = window.location.href.split('#')[0];
+      var base = origin.replace(/[^/]*$/, '');
+      document.querySelectorAll('meta[property="og:image"], meta[name="twitter:image"]').forEach(function (meta) {
+        var src = meta.getAttribute('content');
+        if (src && src.indexOf('http') !== 0) {
+          meta.setAttribute('content', base + src.replace(/^\//, ''));
+        }
+      });
+      var ogUrl = document.querySelector('meta[property="og:url"]');
+      if (!ogUrl) {
+        ogUrl = document.createElement('meta');
+        ogUrl.setAttribute('property', 'og:url');
+        document.head.appendChild(ogUrl);
+      }
+      ogUrl.setAttribute('content', origin);
+    })();
+  </script>
+
+  <!-- Without JS the cover can never be dismissed, so skip straight to the site -->
+  <noscript>
+    <style>#page-sacred-opening { display: none; }</style>
+  </noscript>
+</head>
+<body>
+
+  <!-- GLOBAL PARTICLES & WATERCOLOR CANVAS -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- FLOATING AUDIO CONTROLLER -->
+  <button
+    id="audio-toggle-btn"
+    class="audio-controller"
+    type="button"
+    aria-pressed="false"
+    aria-label="Play music"
+    title="Play music"
+  >
+    <span class="audio-icon audio-icon-play" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+        <path d="M8 5.5v13l11-6.5L8 5.5z"/>
+      </svg>
+    </span>
+    <span class="audio-icon audio-icon-pause" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+        <rect x="6" y="5" width="4" height="14" rx="1"/>
+        <rect x="14" y="5" width="4" height="14" rx="1"/>
+      </svg>
+    </span>
+    <span class="sound-waves" aria-hidden="true">
+      <span class="sound-wave-bar"></span>
+      <span class="sound-wave-bar"></span>
+      <span class="sound-wave-bar"></span>
+      <span class="sound-wave-bar"></span>
+    </span>
+    <span class="audio-text">Music</span>
+  </button>
+
+  <!-- =================================================================
+       PAGE 1: OPENING — THE SACRED COVER
+       Uses the painted invitation artwork. Guests enter Page 2 only
+       by tapping the button — scroll / swipe do not open the cover.
+       ================================================================= -->
+  <section id="page-sacred-opening" class="cover" aria-label="Opening — The Sacred Cover">
+
+    <svg class="cover-defs" aria-hidden="true" focusable="false">
+      <defs>
+        <!-- Single petal, base pinned at (50,52) so rings rotate about it -->
+        <path id="pt" d="M50 52 C31 47 23 29 34 15 C42 5 58 5 66 15 C77 29 69 47 50 52 Z"/>
+
+        <radialGradient id="gRoseOut" cx="0.5" cy="0.62" r="0.62">
+          <stop offset="0"   stop-color="#8DAFCB"/>
+          <stop offset="0.6" stop-color="#6F97BB"/>
+          <stop offset="1"   stop-color="#527EA5"/>
+        </radialGradient>
+        <radialGradient id="gRoseMid" cx="0.5" cy="0.6" r="0.62">
+          <stop offset="0"   stop-color="#7DA2C2"/>
+          <stop offset="1"   stop-color="#4A73A0"/>
+        </radialGradient>
+        <radialGradient id="gRoseIn" cx="0.5" cy="0.6" r="0.62">
+          <stop offset="0"   stop-color="#6B92B6"/>
+          <stop offset="1"   stop-color="#3E6791"/>
+        </radialGradient>
+
+        <radialGradient id="gPeonyOut" cx="0.5" cy="0.62" r="0.64">
+          <stop offset="0"    stop-color="#FFFFFF"/>
+          <stop offset="0.62" stop-color="#F3F7FA"/>
+          <stop offset="1"    stop-color="#D6E3EE"/>
+        </radialGradient>
+        <radialGradient id="gPeonyMid" cx="0.5" cy="0.6" r="0.62">
+          <stop offset="0"   stop-color="#FFFFFF"/>
+          <stop offset="1"   stop-color="#E2EBF3"/>
+        </radialGradient>
+        <radialGradient id="gPeonyIn" cx="0.5" cy="0.6" r="0.62">
+          <stop offset="0"   stop-color="#FFFFFF"/>
+          <stop offset="1"   stop-color="#EDF3F8"/>
+        </radialGradient>
+
+        <linearGradient id="gLeaf" x1="0" y1="0" x2="1" y2="0.6">
+          <stop offset="0"   stop-color="#9DB4A8"/>
+          <stop offset="0.5" stop-color="#7A9AA0"/>
+          <stop offset="1"   stop-color="#557C84"/>
+        </linearGradient>
+
+        <!-- Painted edge: fractal displacement + a whisper of bleed -->
+        <filter id="wcPaint" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="3" seed="9" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="6"
+                             xChannelSelector="R" yChannelSelector="G" result="disp"/>
+          <feGaussianBlur in="disp" stdDeviation="0.6"/>
+        </filter>
+
+        <!-- Blue watercolor rose, viewed from above -->
+        <symbol id="rose-blue" viewBox="0 0 100 104">
+          <g fill="url(#gRoseOut)">
+            <use href="#pt" transform="rotate(0 50 52)"/>
+            <use href="#pt" transform="rotate(51.4 50 52)"/>
+            <use href="#pt" transform="rotate(102.8 50 52)"/>
+            <use href="#pt" transform="rotate(154.2 50 52)"/>
+            <use href="#pt" transform="rotate(205.6 50 52)"/>
+            <use href="#pt" transform="rotate(257 50 52)"/>
+            <use href="#pt" transform="rotate(308.4 50 52)"/>
+          </g>
+          <g fill="url(#gRoseMid)" transform="translate(50 52) scale(0.72) translate(-50 -52)">
+            <use href="#pt" transform="rotate(26 50 52)"/>
+            <use href="#pt" transform="rotate(86 50 52)"/>
+            <use href="#pt" transform="rotate(146 50 52)"/>
+            <use href="#pt" transform="rotate(206 50 52)"/>
+            <use href="#pt" transform="rotate(266 50 52)"/>
+            <use href="#pt" transform="rotate(326 50 52)"/>
+          </g>
+          <g fill="url(#gRoseIn)" transform="translate(50 52) scale(0.44) translate(-50 -52)">
+            <use href="#pt" transform="rotate(10 50 52)"/>
+            <use href="#pt" transform="rotate(82 50 52)"/>
+            <use href="#pt" transform="rotate(154 50 52)"/>
+            <use href="#pt" transform="rotate(226 50 52)"/>
+            <use href="#pt" transform="rotate(298 50 52)"/>
+          </g>
+          <ellipse cx="50" cy="50" rx="7.5" ry="7" fill="#38597B"/>
+          <path d="M44 51 C45.5 45 55 44.5 57 49.5 C58.4 53.6 51 56.5 46.8 53.6"
+                fill="none" stroke="#96B6CE" stroke-width="1.4" opacity="0.65"/>
+          <ellipse cx="37" cy="28" rx="17" ry="12" fill="#FFFFFF" opacity="0.2"/>
+        </symbol>
+
+        <!-- White peony with gold stamens -->
+        <symbol id="peony-white" viewBox="0 0 100 104">
+          <g fill="url(#gPeonyOut)">
+            <use href="#pt" transform="rotate(0 50 52)"/>
+            <use href="#pt" transform="rotate(51.4 50 52)"/>
+            <use href="#pt" transform="rotate(102.8 50 52)"/>
+            <use href="#pt" transform="rotate(154.2 50 52)"/>
+            <use href="#pt" transform="rotate(205.6 50 52)"/>
+            <use href="#pt" transform="rotate(257 50 52)"/>
+            <use href="#pt" transform="rotate(308.4 50 52)"/>
+          </g>
+          <g fill="url(#gPeonyMid)" transform="translate(50 52) scale(0.7) translate(-50 -52)">
+            <use href="#pt" transform="rotate(30 50 52)"/>
+            <use href="#pt" transform="rotate(90 50 52)"/>
+            <use href="#pt" transform="rotate(150 50 52)"/>
+            <use href="#pt" transform="rotate(210 50 52)"/>
+            <use href="#pt" transform="rotate(270 50 52)"/>
+            <use href="#pt" transform="rotate(330 50 52)"/>
+          </g>
+          <g fill="url(#gPeonyIn)" transform="translate(50 52) scale(0.42) translate(-50 -52)">
+            <use href="#pt" transform="rotate(14 50 52)"/>
+            <use href="#pt" transform="rotate(86 50 52)"/>
+            <use href="#pt" transform="rotate(158 50 52)"/>
+            <use href="#pt" transform="rotate(230 50 52)"/>
+            <use href="#pt" transform="rotate(302 50 52)"/>
+          </g>
+          <circle cx="50" cy="50" r="7" fill="#F1E5C8"/>
+          <g stroke="#C5A059" stroke-width="0.9" opacity="0.8" fill="none">
+            <path d="M50 50 L46 42.5"/><path d="M50 50 L52 41.5"/><path d="M50 50 L57.5 44.5"/>
+            <path d="M50 50 L43.5 55.5"/><path d="M50 50 L55.5 57.5"/>
+          </g>
+          <g fill="#C5A059" opacity="0.9">
+            <circle cx="46" cy="42.5" r="1.3"/><circle cx="52" cy="41.5" r="1.3"/>
+            <circle cx="57.5" cy="44.5" r="1.3"/><circle cx="43.5" cy="55.5" r="1.3"/>
+            <circle cx="55.5" cy="57.5" r="1.3"/>
+          </g>
+        </symbol>
+
+        <!-- Single sage leaf -->
+        <symbol id="leaf" viewBox="0 0 62 36">
+          <path d="M2 18 C14 3 40 -1 60 11 C43 31 14 33 2 18 Z" fill="url(#gLeaf)"/>
+          <path d="M4 18 C21 15 41 13 57 12" fill="none" stroke="#4C6E72" stroke-width="0.9" opacity="0.4"/>
+        </symbol>
+
+        <!-- Leafed branch -->
+        <symbol id="sprig" viewBox="0 0 210 130">
+          <path d="M4 122 C48 104 104 74 200 12" fill="none" stroke="#5F8083" stroke-width="2" opacity="0.5"/>
+          <g transform="translate(28 110) rotate(-72) scale(0.58)"><use href="#leaf" width="62" height="36"/></g>
+          <g transform="translate(46 100) rotate(-14) scale(0.66)"><use href="#leaf" width="62" height="36"/></g>
+          <g transform="translate(74 84)  rotate(-78) scale(0.62)"><use href="#leaf" width="62" height="36"/></g>
+          <g transform="translate(96 74)  rotate(-18) scale(0.72)"><use href="#leaf" width="62" height="36"/></g>
+          <g transform="translate(124 56) rotate(-84) scale(0.60)"><use href="#leaf" width="62" height="36"/></g>
+          <g transform="translate(146 44) rotate(-22) scale(0.66)"><use href="#leaf" width="62" height="36"/></g>
+          <g transform="translate(174 24) rotate(-70) scale(0.50)"><use href="#leaf" width="62" height="36"/></g>
+          <g transform="translate(188 14) rotate(-26) scale(0.50)"><use href="#leaf" width="62" height="36"/></g>
+        </symbol>
+
+        <!-- Gold leaf branch -->
+        <symbol id="sprig-gold" viewBox="0 0 220 120">
+          <path d="M2 108 C56 92 120 60 216 6" fill="none" stroke="#C5A059" stroke-width="1.5" opacity="0.7"/>
+          <g fill="#C5A059" opacity="0.62">
+            <ellipse cx="30" cy="96"  rx="11" ry="4.6" transform="rotate(-40 30 96)"/>
+            <ellipse cx="52" cy="88"  rx="12" ry="5"   transform="rotate(-8 52 88)"/>
+            <ellipse cx="82" cy="74"  rx="11" ry="4.6" transform="rotate(-46 82 74)"/>
+            <ellipse cx="108" cy="62" rx="12" ry="5"   transform="rotate(-12 108 62)"/>
+            <ellipse cx="140" cy="46" rx="10" ry="4.4" transform="rotate(-50 140 46)"/>
+            <ellipse cx="168" cy="32" rx="11" ry="4.6" transform="rotate(-16 168 32)"/>
+            <ellipse cx="196" cy="16" rx="9"  ry="4"   transform="rotate(-46 196 16)"/>
+          </g>
+          <g fill="#C5A059" opacity="0.85">
+            <circle cx="216" cy="6" r="2.2"/>
+            <circle cx="120" cy="57" r="1.8"/>
+            <circle cx="64" cy="85" r="1.6"/>
+          </g>
+        </symbol>
+      </defs>
+    </svg>
+
+    <div class="cover-stage">
+      <img
+        class="cover-art"
+        src="assets/images/front page.png"
+        alt="What God has joined together, let no one separate. Ribin and Anon Mariya, 23 November 2026."
+        width="1000"
+        height="1280"
+        decoding="async"
+      >
+    </div>
+
+    <div class="cover-tap">
+      <button id="btn-begin-journey" class="btn-tap-here" type="button">
+        <span class="btn-tap-label">Tap Here</span>
+      </button>
+      <p class="tap-subtext">To begin our journey</p>
+      <svg class="tap-heart" viewBox="0 0 90 22" fill="none" aria-hidden="true" focusable="false">
+        <path d="M45 14 C41 9 35 9 35 13 C35 16 45 19 45 19 C45 19 55 16 55 13 C55 9 49 9 45 14 Z" stroke="#C5A059" stroke-width="1.2"/>
+        <path d="M30 14 Q20 12 12 16 M60 14 Q70 12 78 16" stroke="#C5A059" stroke-width="1" opacity="0.7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- MAIN SCROLLABLE CONTENT -->
+  <main id="main-content">
+
+    <!-- =================================================================
+         PAGE 2: HERO — THE MONOGRAM
+         Twilight counterpoint to the pale cover: gold crest, the names,
+         the date, and the countdown to the wedding.
+         ================================================================= -->
+    <section id="page-hero-landing" class="monogram-hero" aria-label="Ribin and Anon Mariya">
+
+      <!-- Twilight ocean backdrop -->
+      <svg class="mono-bg" viewBox="0 0 1440 900"
+           preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="mDeep" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0"    stop-color="#14273A"/>
+            <stop offset="0.34" stop-color="#21405F"/>
+            <stop offset="0.62" stop-color="#2F5779"/>
+            <stop offset="0.84" stop-color="#26466A"/>
+            <stop offset="1"    stop-color="#152839"/>
+          </linearGradient>
+          <radialGradient id="mHalo" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0"   stop-color="#C5A059" stop-opacity="0.3"/>
+            <stop offset="0.5" stop-color="#C5A059" stop-opacity="0.1"/>
+            <stop offset="1"   stop-color="#C5A059" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="mMist" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" stop-color="#DCEAF5" stop-opacity="0.22"/>
+            <stop offset="1" stop-color="#DCEAF5" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="mBlur" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="26"/>
+          </filter>
+        </defs>
+
+        <rect x="0" y="0" width="1440" height="900" fill="url(#mDeep)"/>
+
+        <!-- Light pooling behind the crest -->
+        <ellipse cx="720" cy="300" rx="520" ry="330" fill="url(#mHalo)"/>
+        <ellipse cx="720" cy="150" rx="700" ry="220" fill="url(#mMist)"/>
+
+        <!-- Distant drifting light -->
+        <g fill="#DCEAF5" filter="url(#mBlur)" opacity="0.16">
+          <ellipse cx="240" cy="220" rx="220" ry="90"/>
+          <ellipse cx="1220" cy="330" rx="250" ry="80"/>
+        </g>
+
+        <!-- Faraway swell crests -->
+        <g fill="none" stroke="#9EC0D9" stroke-linecap="round" opacity="0.3">
+          <path d="M-40 700 C220 672 420 712 700 690 C960 670 1180 706 1480 682" stroke-width="2.5"/>
+          <path d="M-40 772 C260 742 480 784 780 760 C1040 740 1240 778 1480 752" stroke-width="3"/>
+          <path d="M-40 846 C300 814 540 858 840 832 C1100 810 1280 850 1480 824" stroke-width="3.5"/>
+        </g>
+      </svg>
+
+      <!-- Watercolor florals, reusing the shared library -->
+      <svg class="mono-flora mono-flora-tr" viewBox="0 0 420 420" aria-hidden="true" focusable="false">
+        <g filter="url(#wcPaint)">
+          <g transform="translate(120 16) rotate(26) scale(1.15)"><use href="#sprig" width="210" height="130"/></g>
+          <g transform="translate(316 118) rotate(98) scale(1.08)"><use href="#sprig" width="210" height="130"/></g>
+          <use href="#peony-white" x="146" y="118" width="132" height="137"/>
+          <use href="#rose-blue"   x="248" y="26"  width="164" height="171"/>
+          <use href="#peony-white" x="298" y="178" width="112" height="116"/>
+        </g>
+      </svg>
+
+      <svg class="mono-flora mono-flora-bl" viewBox="0 0 420 460" aria-hidden="true" focusable="false">
+        <g filter="url(#wcPaint)">
+          <g transform="translate(64 62) rotate(-28) scale(1.2)"><use href="#sprig" width="210" height="130"/></g>
+          <g transform="translate(28 206) rotate(32) scale(1.15)"><use href="#sprig" width="210" height="130"/></g>
+          <use href="#rose-blue"   x="8"   y="150" width="172" height="179"/>
+          <use href="#peony-white" x="118" y="248" width="142" height="148"/>
+          <use href="#rose-blue"   x="28"  y="318" width="132" height="137"/>
+        </g>
+      </svg>
+
+      <div class="mono-content">
+
+        <!-- Gold cross -->
+        <svg class="mono-cross reveal-on-scroll" viewBox="0 0 24 36" fill="none" aria-hidden="true" focusable="false">
+          <path d="M12 1 V35 M4 11 H20" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+
+        <!-- Monogram Crest -->
+<div class="mono-crest reveal-on-scroll delay-1">
+  <svg class="mono-crest-frame"
+       viewBox="0 0 160 160"
+       xmlns="http://www.w3.org/2000/svg"
+       aria-hidden="true"
+       focusable="false">
+
+    <defs>
+
+      <linearGradient id="crestGold" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#D8B36A"/>
+        <stop offset="100%" stop-color="#B78D42"/>
+      </linearGradient>
+
+      <filter id="crestGlow"
+              x="-30%"
+              y="-30%"
+              width="160%"
+              height="160%">
+        <feDropShadow
+          dx="0"
+          dy="0"
+          stdDeviation="0.8"
+          flood-color="#D4B161"
+          flood-opacity=".25"/>
+      </filter>
+
+    </defs>
+
+ 
+
+    <!-- Diamond -->
+    <g fill="none" transform="rotate(45 80 80)">
+      <rect
+        x="28"
+        y="28"
+        width="104"
+        height="104"
+        rx="16"
+        stroke="#C5A059"
+        stroke-width="1.4"/>
+
+      <rect
+        x="37"
+        y="37"
+        width="86"
+        height="86"
+        rx="11"
+        stroke="#C5A059"
+        stroke-width=".7"
+        opacity=".55"/>
+    </g>
+
+    <!-- Four Dots -->
+    <g fill="#C5A059">
+      <circle cx="80" cy="6.5" r="2.5"/>
+      <circle cx="80" cy="153.5" r="2.5"/>
+      <circle cx="6.5" cy="80" r="2.5"/>
+      <circle cx="153.5" cy="80" r="2.5"/>
+    </g>
+
+    <!-- Luxury Monogram -->
+    <g
+      fill="url(#crestGold)"
+      filter="url(#crestGlow)">
+
+      <!-- R -->
+      <text
+        x="58"
+        y="97"
+        text-anchor="middle"
+        font-family="'Great Vibes', cursive"
+        font-size="54"
+        font-weight="500">
+        R
+      </text>
+
+      <!-- & -->
+      <text
+        x="80"
+        y="96"
+        text-anchor="middle"
+        font-family="'Cormorant Garamond', serif"
+        font-size="18"
+        fill="#C5A059">
+        &
+      </text>
+
+      <!-- A -->
+      <text
+        x="102"
+        y="97"
+        text-anchor="middle"
+        font-family="'Great Vibes', cursive"
+        font-size="54"
+        font-weight="500">
+        A
+      </text>
+
+    </g>
+
+  </svg>
+</div>
+
+        <!-- Names and date -->
+        <h2 class="mono-names reveal-on-scroll delay-2">Ribin &amp; Anon Mariya</h2>
+        <span class="mono-rule reveal-on-scroll delay-2" aria-hidden="true"></span>
+        <p class="mono-date reveal-on-scroll delay-2">23 November 2026</p>
+
+        <!-- Countdown. The target lives here, beside the date it counts to,
+             rather than hardcoded in countdown.js. ISO 8601 with offset. -->
+        <div class="mono-countdown reveal-on-scroll delay-3"
+             data-target="2026-11-23T11:00:00+05:30">
+          <div class="cd-unit">
+            <span class="cd-value" id="cd-days">00</span>
+            <span class="cd-label">Days</span>
+          </div>
+          <span class="cd-split" aria-hidden="true"></span>
+          <div class="cd-unit">
+            <span class="cd-value" id="cd-hours">00</span>
+            <span class="cd-label">Hours</span>
+          </div>
+          <span class="cd-split" aria-hidden="true"></span>
+          <div class="cd-unit">
+            <span class="cd-value" id="cd-minutes">00</span>
+            <span class="cd-label">Minutes</span>
+          </div>
+          <span class="cd-split" aria-hidden="true"></span>
+          <div class="cd-unit">
+            <span class="cd-value" id="cd-seconds">00</span>
+            <span class="cd-label">Seconds</span>
+          </div>
+        </div>
+
+        <p class="mono-caption reveal-on-scroll delay-3">Every sunrise brings us closer.</p>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         PAGE 3: OUR STORY (TIMELINE)
+         ================================================================= -->
+    <section id="page-our-journey" class="page-section" aria-label="Our Story">
+      <div class="page-bg-wrapper">
+        <div class="page-blurred-photo" style="background-image: url('assets/images/client_photo_hands_camera.jpg');"></div>
+        <div class="page-watercolor-overlay"></div>
+      </div>
+
+      <div class="page-content">
+        <div class="story-header reveal-on-scroll" style="text-align: center; margin-bottom: 60px;">
+          <span class="section-subtitle">A BEAUTIFUL JOURNEY</span>
+          <h2 class="serif-heading" style="font-size: 3.2rem;">Our Story</h2>
+          <div class="thin-gold-divider"></div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 48px; max-width: 800px; margin: 0 auto;">
+          <!-- CHAPTER 01 -->
+          <div class="reveal-on-scroll" style="background: rgba(255,255,255,0.7); border: 1px solid var(--color-border-gold); padding: 32px; text-align: center;">
+            <span class="section-subtitle">CHAPTER 01</span>
+            <h3 class="serif-heading" style="font-size: 1.8rem; color: var(--color-gold-dark); margin-bottom: 12px;">A Beautiful Beginning</h3>
+            <p style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 10px;">Every beautiful journey begins with a moment.</p>
+            <p style="font-family: var(--font-serif); font-size: 1.15rem;">Two lives, two dreams, and two hearts came together to begin a new chapter filled with love, happiness, and hope.</p>
+          </div>
+
+          <!-- CHAPTER 02 -->
+          <div class="reveal-on-scroll delay-1" style="background: rgba(255,255,255,0.7); border: 1px solid var(--color-border-gold); padding: 32px; text-align: center;">
+            <span class="section-subtitle">CHAPTER 02</span>
+            <h3 class="serif-heading" style="font-size: 1.8rem; color: var(--color-gold-dark); margin-bottom: 12px;">A Journey Together</h3>
+            <p style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 10px;">As life moved forward, beautiful moments became precious memories.</p>
+            <p style="font-family: var(--font-serif); font-size: 1.15rem;">Through laughter, little moments, and shared dreams, <strong>Ribin R Philip</strong> and <strong>Anon Mariya Augustine</strong> found a special kind of happiness in walking through life together.</p>
+          </div>
+
+          <!-- CHAPTER 03 -->
+          <div class="reveal-on-scroll delay-2" style="background: rgba(255,255,255,0.7); border: 1px solid var(--color-border-gold); padding: 32px; text-align: center;">
+            <span class="section-subtitle">CHAPTER 03</span>
+            <h3 class="serif-heading" style="font-size: 1.8rem; color: var(--color-gold-dark); margin-bottom: 12px;">With Love &amp; Blessings</h3>
+            <p style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 10px;">Every journey becomes more meaningful when it is surrounded by the love and blessings of family and friends.</p>
+            <p style="font-family: var(--font-serif); font-size: 1.15rem;">With their loved ones by their side, Ribin and Anon look forward to creating many more beautiful memories together.</p>
+          </div>
+
+          <!-- CHAPTER 04 -->
+          <div class="reveal-on-scroll" style="background: rgba(255,255,255,0.7); border: 1px solid var(--color-border-gold); padding: 32px; text-align: center;">
+            <span class="section-subtitle">CHAPTER 04</span>
+            <h3 class="serif-heading" style="font-size: 1.8rem; color: var(--color-gold-dark); margin-bottom: 12px;">The Promise</h3>
+            <p style="font-family: var(--font-serif); font-size: 1.15rem;">Now comes a beautiful promise — to stand together through every season of life, to share every dream, and to celebrate every moment as one.</p>
+          </div>
+
+          <!-- CHAPTER 05 -->
+          <div class="reveal-on-scroll delay-1" style="background: rgba(255,255,255,0.7); border: 1px solid var(--color-border-gold); padding: 32px; text-align: center;">
+            <span class="section-subtitle">CHAPTER 05</span>
+            <h3 class="serif-heading" style="font-size: 1.8rem; color: var(--color-gold-dark); margin-bottom: 12px;">Forever Begins</h3>
+            <p style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 14px;">And now, their next chapter is about to begin.</p>
+            <p style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--color-navy-ink); margin-bottom: 16px;">
+              On <strong style="color: var(--color-gold-dark);">23 November 2026</strong>,<br>
+              <strong>Ribin R Philip &amp; Anon Mariya Augustine</strong><br>
+              <span style="font-size: 1.1rem; display: inline-block; margin-top: 6px;">invite you to be part of their special day as they begin their journey of togetherness.</span>
+            </p>
+            <p style="font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--color-text-muted); line-height: 1.8;">
+              One journey.<br>
+              Two hearts.<br>
+              A lifetime of memories.
+            </p>
+            <p class="script-accent" style="font-size: 2.2rem; color: var(--color-gold-dark); margin-top: 18px;">
+              Forever begins here.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         PAGE 4: EVENT DETAILS (WEDDING & RECEPTION)
+         ================================================================= -->
+    <section id="page-event-details" class="page-section" aria-label="Event Details">
+      <div class="page-bg-wrapper">
+        <div class="page-blurred-photo" style="background-image: url('assets/images/client_photo_pathway.jpg');"></div>
+        <div class="page-watercolor-overlay"></div>
+      </div>
+
+      <div class="page-content reveal-on-scroll" style="text-align: center;">
+        <span class="section-subtitle">WITH JOYFUL HEARTS</span>
+        <h2 class="serif-heading" style="font-size: 2.8rem;">WE INVITE YOU TO CELEBRATE WITH US</h2>
+        <div class="thin-gold-divider"></div>
+
+        <div class="events-split-grid">
+          <!-- WEDDING CEREMONY -->
+          <div class="event-details-box">
+            <div class="event-church-img-container">
+              <img src="assets/images/image.png" alt="Mar Thoma Episcopal Jubilee Mandiram Chapel">
+            </div>
+            <span class="section-subtitle">WEDDING CEREMONY</span>
+            <h3 class="serif-heading" style="font-size: 1.8rem; color: var(--color-navy-ink);">MONDAY, 23 NOVEMBER 2026</h3>
+            <p style="font-family: var(--font-sans); font-size: 0.85rem; letter-spacing: 2px; color: var(--color-gold-dark); margin-bottom: 12px;">AT 11:00 AM</p>
+            <p style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--color-navy-ink);">MAR THOMA EPISCOPAL JUBILEE MANDIRAM CHAPEL</p>
+            <p style="font-family: var(--font-serif); font-size: 1.1rem; font-style: italic; color: var(--color-text-muted); margin-bottom: 24px;">Kottarakkara, Kerala</p>
+
+            <a href="https://maps.google.com/?q=Mar+Thoma+Episcopal+Jubilee+Mandiram+chapel+Kottarakkara" target="_blank" rel="noopener noreferrer" class="btn-editorial">
+              <span>NAVIGATE</span>
+            </a>
+          </div>
+
+          <!-- RECEPTION -->
+          <div class="event-details-box">
+            <div class="event-church-img-container">
+              <img src="assets/images/auditorium.png" alt="Jubilee Mandiram Auditorium">
+            </div>
+            <span class="section-subtitle">RECEPTION</span>
+            <h3 class="serif-heading" style="font-size: 1.8rem; color: var(--color-navy-ink);">MONDAY, 23 NOVEMBER 2026</h3>
+            <p style="font-family: var(--font-sans); font-size: 0.85rem; letter-spacing: 2px; color: var(--color-gold-dark); margin-bottom: 12px;">FOLLOWING THE CEREMONY</p>
+            <p style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--color-navy-ink);">JUBILEE MANDIRAM AUDITORIUM</p>
+            <p style="font-family: var(--font-serif); font-size: 1.1rem; font-style: italic; color: var(--color-text-muted); margin-bottom: 24px;">SH 1, Pulamon Junction, Kottarakkara, Kerala 691531</p>
+
+            <a href="https://maps.google.com/?q=Jubilee+Mandiram+Auditorium,+SH+1,+Pulamon+Junction,+Kottarakkara,+Kerala+691531" target="_blank" rel="noopener noreferrer" class="btn-editorial">
+              <span>NAVIGATE</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         PAGE 5: FAMILIES
+         ================================================================= -->
+    <section id="page-families" class="page-section" aria-label="Families">
+      <div class="page-bg-wrapper">
+        <div class="page-blurred-photo" style="background-image: url('assets/images/client_photo_resort.jpg');"></div>
+        <div class="page-watercolor-overlay"></div>
+      </div>
+
+      <div class="page-content reveal-on-scroll" style="text-align: center;">
+        <span class="section-subtitle">HERITAGE &amp; BLESSINGS</span>
+        <h2 class="serif-heading" style="font-size: 3rem;">OUR FAMILIES</h2>
+        <div class="thin-gold-divider"></div>
+
+        <div class="families-grid">
+          <div class="family-card">
+            <span class="section-subtitle">GROOM'S FAMILY</span>
+            <h3 class="serif-heading family-names">REJI MATHEW &amp; SHINY THOMAS</h3>
+            <p class="family-house">Angadiyil House</p>
+            <p class="family-place">Kannimel, Pattazhy P.O., Kollam, Kerala - 691522</p>
+          </div>
+
+          <div class="family-card">
+            <span class="section-subtitle">BRIDE'S FAMILY</span>
+            <h3 class="serif-heading family-names">AUGUSTHY K.C. &amp; LILLY JOSEPH</h3>
+            <p class="family-house">Kanjiramattathil</p>
+            <p class="family-place">Chemmalamattom, Pala, Kottayam</p>
+          </div>
+        </div>
+
+        <p class="script-accent" style="font-size: 2.2rem; margin-top: 40px; color: var(--color-gold-dark);">
+          With best compliments from Ritty, Subin, Ronal &amp; Family
+        </p>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         PAGE 6: BLESSINGS
+         ================================================================= -->
+    <section id="page-blessings" class="page-section" aria-label="Blessings">
+      <div class="page-bg-wrapper">
+        <div class="page-blurred-photo" style="background-image: url('assets/images/hero_couple.jpg');"></div>
+        <div class="page-watercolor-overlay"></div>
+      </div>
+
+      <div class="page-content reveal-on-scroll" style="text-align: center;">
+        <span class="section-subtitle">SHARE YOUR BLESSINGS</span>
+        <h2 class="serif-heading" style="font-size: 3.2rem;">PRAYERS &amp; WISHES</h2>
+        <div class="thin-gold-divider"></div>
+
+        <div style="max-width: 680px; margin: 0 auto; background: rgba(255,255,255,0.7); border: 1px solid var(--color-border-gold); padding: 40px;">
+          <form id="blessings-form" style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
+            <div>
+              <label for="blessing-name" style="font-family: var(--font-sans); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--color-gold-dark); display: block; margin-bottom: 6px;">Your Name</label>
+              <input type="text" id="blessing-name" style="width: 100%; padding: 14px 18px; background: rgba(252, 251, 248, 0.9); border: 1px solid var(--color-border-gold); font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-navy-ink); outline: none;" placeholder="e.g. Uncle Thomas &amp; Family" required>
+            </div>
+
+            <div>
+              <label for="blessing-msg" style="font-family: var(--font-sans); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--color-gold-dark); display: block; margin-bottom: 6px;">Your Blessing or Prayer</label>
+              <textarea id="blessing-msg" rows="5" style="width: 100%; padding: 14px 18px; background: rgba(252, 251, 248, 0.9); border: 1px solid var(--color-border-gold); font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-navy-ink); outline: none;" placeholder="Write your warm wishes for Ribin &amp; Anon Mariya..." required>Dear Ribin &amp; Anon Mariya,
+
+May God bless your holy union with endless love, peace, and joy. Wishing you a lifetime of faith, laughter, and togetherness.
+
+With love and prayers,</textarea>
+            </div>
+
+            <button type="submit" class="btn-editorial" style="align-self: center;">
+              <span>SEND BLESSING</span>
+            </button>
+          </form>
+
+          <div id="blessings-feed" style="margin-top: 36px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="background: rgba(255, 255, 255, 0.85); border-left: 3px solid var(--color-gold); padding: 16px 20px; text-align: left;">
+              <p style="font-family: var(--font-sans); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--color-gold);">Friends &amp; Family</p>
+              <p style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-text-dark); margin-top: 4px;">“May God abundantly bless your union with endless love, peace, and togetherness.”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         PAGE 7: THANK YOU — particles gather into the closing words
+         ================================================================= -->
+    <section id="page-thank-you" class="thank-you-section" aria-label="Thank You">
+      <svg class="thank-you-cross" viewBox="0 0 24 36" fill="none" aria-hidden="true" focusable="false">
+        <path d="M12 1 V35 M4 11 H20" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+
+      <div class="thank-you-stage" id="thank-you-stage">
+        <h2 class="thank-you-text">Thank You</h2>
+      </div>
+
+      <p class="thank-you-sub">For walking with us on this sacred journey</p>
+      <p class="thank-you-names">Ribin &amp; Anon Mariya</p>
+    </section>
+
+  </main>
+
+  <!-- EDITORIAL FOOTER -->
+  <footer class="editorial-footer">
+    <p class="footer-names">Ribin &amp; Anon Mariya</p>
+    <p class="footer-date">23 November 2026</p>
+    <p class="footer-love">Made with Love</p>
+  </footer>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox-modal" class="lightbox-modal" aria-hidden="true">
+    <button id="lightbox-close" class="lightbox-close-btn" aria-label="Close Lightbox">&times;</button>
+    <img id="lightbox-img" class="lightbox-content-img" src="" alt="Enlarged photo view">
+  </div>
+
+  <!-- MASTER JS SCRIPTS -->
+  <script src="js/cover.js"></script>
+  <script src="js/audioEngine.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

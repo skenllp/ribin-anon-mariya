@@ -1,0 +1,272 @@
+/* -----------------------------------------------------------------
+   SINI & MARTIN — GALLERY
+   Luxury scrapbook / wedding-album layout.
+   Not a grid. Not masonry. Not a carousel.
+   ----------------------------------------------------------------- */
+
+.album-section {
+  background: transparent;
+  overflow: visible;
+}
+
+.album-section .page-content {
+  max-width: 720px;
+  text-align: center;
+}
+
+/* ---- Header ---- */
+.album-header {
+  margin-bottom: 56px;
+}
+
+.album-title {
+  font-size: clamp(2.2rem, 8vw, 3.2rem);
+  color: var(--color-navy-ink);
+  letter-spacing: 0.04em;
+}
+
+/* ---- Vertical scrapbook flow ---- */
+.album-flow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 8px 0 24px;
+}
+
+.album-photo {
+  position: relative;
+  margin: 0;
+  margin-bottom: clamp(60px, 12vw, 90px);
+  opacity: 0;
+  transform: translateY(40px) rotate(0deg);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.album-photo.is-in {
+  opacity: 1;
+  transform: translateY(0) rotate(var(--rot, 0deg));
+}
+
+.album-photo:nth-child(1) { transition-delay: 0.05s; }
+.album-photo:nth-child(2) { transition-delay: 0.1s; }
+.album-photo:nth-child(3) { transition-delay: 0.05s; }
+.album-photo:nth-child(4) { transition-delay: 0.1s; }
+.album-photo:nth-child(5) { transition-delay: 0.05s; }
+.album-photo:nth-child(6) { transition-delay: 0.1s; }
+
+.album-photo:last-child {
+  margin-bottom: 24px;
+}
+
+/* Alignment + widths — never edge to edge */
+.album-photo--left {
+  align-self: flex-start;
+  margin-left: 2%;
+}
+
+.album-photo--right {
+  align-self: flex-end;
+  margin-right: 2%;
+}
+
+.album-photo--lg { width: 88%; }
+.album-photo--md { width: 82%; }
+.album-photo--sm { width: 76%; }
+
+/* Slight vertical overlap of the flow without touching */
+.album-photo--right {
+  margin-top: -28px;
+}
+
+.album-photo--left + .album-photo--right {
+  margin-top: -36px;
+}
+
+.album-photo--right + .album-photo--left {
+  margin-top: -24px;
+}
+
+/* ---- Printed photo frame ---- */
+.album-frame {
+  position: relative;
+  background: #FFFEFB;
+  padding: 10px 10px 14px;
+  border-radius: 12px;
+  box-shadow:
+    0 2px 4px rgba(27, 49, 69, 0.04),
+    0 14px 36px rgba(27, 49, 69, 0.12),
+    0 28px 56px -20px rgba(27, 49, 69, 0.16);
+  cursor: pointer;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.album-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
+  background: #E8EEF3;
+}
+
+.album-photo--portrait .album-frame img {
+  aspect-ratio: 3 / 4;
+}
+
+.album-photo--landscape .album-frame img {
+  aspect-ratio: 4 / 3;
+}
+
+.album-photo--square .album-frame img {
+  aspect-ratio: 1 / 1;
+}
+
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+  .album-photo.is-in .album-frame:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:
+      0 4px 8px rgba(27, 49, 69, 0.06),
+      0 20px 44px rgba(27, 49, 69, 0.16),
+      0 36px 64px -18px rgba(27, 49, 69, 0.2);
+  }
+}
+
+/* Mobile tap */
+.album-frame:active {
+  transform: scale(0.985);
+}
+
+/* ---- Masking tape ---- */
+.album-tape {
+  position: absolute;
+  z-index: 2;
+  width: 62px;
+  height: 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(232, 220, 190, 0.82) 0%,
+    rgba(214, 198, 160, 0.72) 100%
+  );
+  box-shadow: 0 1px 3px rgba(27, 49, 69, 0.12);
+  opacity: 0.88;
+  pointer-events: none;
+}
+
+.album-tape::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 3px,
+    rgba(255, 255, 255, 0.12) 3px,
+    rgba(255, 255, 255, 0.12) 4px
+  );
+  opacity: 0.5;
+}
+
+.album-tape--tl {
+  top: -8px;
+  left: 18px;
+  transform: rotate(-8deg);
+}
+
+.album-tape--tr {
+  top: -8px;
+  right: 18px;
+  transform: rotate(7deg);
+}
+
+/* ---- Soft watercolor leaf accents ---- */
+.album-accent {
+  position: absolute;
+  width: 64px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.album-accent--leaf-br {
+  right: -10px;
+  bottom: -18px;
+}
+
+.album-accent--leaf-tl {
+  left: -12px;
+  top: -14px;
+}
+
+/* ---- Tiny gold particles ---- */
+.album-sparkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  opacity: 0.55;
+  pointer-events: none;
+  box-shadow:
+    14px 10px 0 -1.5px rgba(197, 160, 89, 0.4),
+    -10px 16px 0 -2px rgba(197, 160, 89, 0.3);
+}
+
+.album-sparkle--tl {
+  top: 12%;
+  left: -6px;
+}
+
+.album-sparkle--br {
+  bottom: 18%;
+  right: -4px;
+}
+
+/* ---- Footer flourish ---- */
+.album-footer-flourish {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.album-footer-flourish svg {
+  width: 110px;
+  height: auto;
+}
+
+/* ---- Desktop breathing room ---- */
+@media screen and (min-width: 769px) {
+  .album-section .page-content {
+    max-width: 640px;
+  }
+
+  .album-photo--lg { width: 82%; }
+  .album-photo--md { width: 74%; }
+  .album-photo--sm { width: 64%; }
+
+  .album-photo {
+    margin-bottom: 80px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .album-photo {
+    opacity: 1;
+    transform: rotate(var(--rot, 0deg));
+    transition: none;
+  }
+
+  .album-frame {
+    transition: none;
+  }
+}

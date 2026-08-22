@@ -1,0 +1,112 @@
+/* -----------------------------------------------------------------
+   SINI & MARTIN — Thank You section + particle canvas layering
+   ----------------------------------------------------------------- */
+
+#particle-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0.92;
+}
+
+/* Thank You — final ceremonial close */
+.thank-you-section {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 6% 120px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.thank-you-stage {
+  position: relative;
+  width: min(92vw, 640px);
+  height: clamp(140px, 28vw, 220px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.thank-you-text {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 11vw, 4.6rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  opacity: 0;
+  transform: scale(0.98);
+  text-shadow: 0 0 28px rgba(197, 160, 89, 0.25);
+  transition: opacity 0.55s ease 0.1s, transform 0.55s ease 0.1s;
+  pointer-events: none;
+}
+
+.thank-you-section.is-formed .thank-you-text {
+  opacity: 0.45;
+}
+
+.thank-you-section.is-settled .thank-you-text {
+  opacity: 0.7;
+  transform: scale(1);
+}
+
+.thank-you-cross {
+  width: 22px;
+  height: auto;
+  margin-bottom: 28px;
+  opacity: 0.85;
+  filter: drop-shadow(0 2px 10px rgba(197, 160, 89, 0.4));
+}
+
+.thank-you-sub {
+  margin-top: 36px;
+  max-width: 420px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 3.4vw, 1.35rem);
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease 0.25s, transform 0.5s ease 0.25s;
+}
+
+.thank-you-section.is-settled .thank-you-sub {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.thank-you-names {
+  margin-top: 18px;
+  font-family: var(--font-script-formal);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: var(--color-navy-ink);
+  opacity: 0;
+  transition: opacity 0.5s ease 0.35s;
+}
+
+.thank-you-section.is-settled .thank-you-names {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thank-you-text,
+  .thank-you-sub,
+  .thank-you-names {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

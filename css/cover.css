@@ -1,0 +1,254 @@
+/* -----------------------------------------------------------------
+   SINI & MARTIN — PAGE 1 : OPENING (THE SACRED COVER)
+   Full-viewport, edge-to-edge hero. No card, no poster frame, no margins.
+   Clean space reserved at the bottom for the tap button.
+   ----------------------------------------------------------------- */
+
+#page-sacred-opening {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #F7F4EE;
+  transition:
+    opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#page-sacred-opening.is-leaving,
+#page-sacred-opening.faded-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#page-sacred-opening.is-leaving .cover-stage {
+  transform: scale(1.08);
+  filter: blur(6px);
+}
+
+#page-sacred-opening.is-leaving .cover-tap {
+  opacity: 0;
+  transform: translate(-50%, 14px);
+}
+
+body.cover-locked {
+  overflow: hidden;
+  height: 100%;
+  height: 100dvh;
+}
+
+.cover-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* =================================================================
+   FULL-BLEED STAGE — fills the entire viewport
+   ================================================================= */
+.cover-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cover.is-ready .cover-stage {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cover-art {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  object-fit: cover;
+  object-position: center center;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* Soft fade at the bottom so the button sits in clean space */
+.cover-stage::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: min(34vh, 280px);
+  background: linear-gradient(
+    180deg,
+    rgba(247, 244, 238, 0) 0%,
+    rgba(247, 244, 238, 0.45) 40%,
+    rgba(247, 244, 238, 0.82) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =================================================================
+   TAP BUTTON — bottom of the viewport
+   ================================================================= */
+.cover-tap {
+  position: absolute;
+  left: 50%;
+  bottom: max(28px, env(safe-area-inset-bottom, 0px) + 24px);
+  transform: translate(-50%, 12px);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(88vw, 320px);
+  opacity: 0;
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.45s,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.45s;
+}
+
+.cover.is-ready .cover-tap {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.btn-tap-here {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  padding: 14px 28px;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 999px;
+  background: rgba(252, 251, 248, 0.94);
+  color: var(--color-navy-ink);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 6px 22px rgba(27, 49, 69, 0.12);
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.btn-tap-here::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  animation: tapPulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+.btn-tap-here:hover,
+.btn-tap-here:focus-visible {
+  background: var(--color-gold);
+  color: #FFFDF8;
+  box-shadow: 0 10px 28px rgba(197, 160, 89, 0.4);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.btn-tap-here:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-tap-label {
+  position: relative;
+  z-index: 1;
+}
+
+.tap-subtext {
+  margin-top: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-navy-ink);
+}
+
+.tap-heart {
+  width: 72px;
+  height: auto;
+  margin-top: 6px;
+}
+
+@keyframes tapPulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  70%, 100% {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+}
+
+/* =================================================================
+   HERO ENTRANCE (Page 2)
+   ================================================================= */
+body.cover-exiting #page-hero-landing {
+  animation: heroReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0.35;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-tap-here::before {
+    animation: none;
+  }
+
+  #page-sacred-opening,
+  .cover-stage,
+  .cover-tap {
+    transition-duration: 0.01ms;
+  }
+
+  body.cover-exiting #page-hero-landing {
+    animation: none;
+  }
+
+  #page-sacred-opening.is-leaving .cover-stage {
+    filter: none;
+    transform: none;
+  }
+}

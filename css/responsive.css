@@ -1,0 +1,54 @@
+/* -----------------------------------------------------------------
+   SINI & MARTIN — Responsive Styles
+   ----------------------------------------------------------------- */
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --section-padding-y: 90px;
+  }
+
+  .events-split-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .families-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 520px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --section-padding-y: 70px;
+    --section-padding-x: 20px;
+  }
+
+  .families-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .family-card {
+    padding: 28px 20px;
+  }
+
+  .family-names {
+    font-size: 1.35rem;
+  }
+
+  .event-church-img-container {
+    height: auto;
+  }
+
+  .audio-controller {
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 14px;
+  }
+
+  .audio-text {
+    font-size: 0.65rem;
+  }
+}
